@@ -12,15 +12,15 @@ Audience: Node.js developers, CS students, security enthusiasts, After Hours Stu
 
 ## Tasks
 
-* [ ] Make sure the created token from Github can access your gists. You should have saved it in the .env file already.
+* [x] Make sure the created token from Github can access your gists. You should have saved it in the .env file already.
 
-* [ ] npm i and then Run the provided code (yarn start then navigate to `localhost:3000/` in your browser)
+* [x] npm i and then Run the provided code (yarn start then navigate to `localhost:3000/` in your browser)
 
-* [ ] Review the functionality implemented in this temporary test page.
+* [x] Review the functionality implemented in this temporary test page.
 
-* [ ] Use Seans solution lecture to refactor the  existing functionality as a guide to understand the features making use of encryption.
+* [x] Use Seans solution lecture to refactor the  existing functionality as a guide to understand the features making use of encryption.
 
-* [ ]Stretch: Redo the test page so the user can access the same functionality in a sleek react app with a nice UI/UX.
+* [ ] In progress: Stretch: Redo the test page so the user can access the same functionality in a sleek react app with a nice UI/UX.
 
 ## Getting started - reference documentation from the original [here](https://github.com/lambdaschool-pm/Secret-Gists)
 
