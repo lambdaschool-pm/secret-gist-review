@@ -49,7 +49,6 @@ try {
 	});
 }
 
-/*
 server.get('/', (req, res) => {
 	// Return a response that documents the other routes/operations available
 	res.send(`
@@ -102,15 +101,14 @@ server.get('/', (req, res) => {
     </html>
   `);
 });
-*/
 
-server.get('/', (req, res) => {
+server.get('/api', (req, res) => {
 	// Return a response that documents the other routes/operations available
 
 	const page = {
-		header: 'Secret Gists!',
-		head1: 'This is an educational implementation.  Do not use for truly valuable information',
-		head2: 'Supported operations:',
+		head: 'Secret Gists!',
+		intro: 'This is an educational implementation.  Do not use for truly valuable information',
+		subHead: 'Supported operations:',
 		links: [
 			{
 				url: 'keyPairGen',
@@ -123,75 +121,85 @@ server.get('/', (req, res) => {
 				text: 'GET /gists',
 				description: 'retrieve a list of gists for the authorized user (including private gists)',
 			},
-			{ url: 'key', text: 'GET /key', description: 'return the secret key used for encryption of secret gists' },
-		],
-		head3: [
 			{
-				heading: 'Set your secret key to a specific key',
+				url: 'key',
+				text: 'GET /key',
+				description: 'return the secret key used for encryption of secret gists',
+			},
+		],
+		content: [
+			{
+				title: 'Set your secret key to a specific key',
 				form: {
 					action: 'setKey:keyString',
 					method: 'get',
 					label: 'Key String',
 					type: 'text',
 					name: 'ketString',
+					textArea: false,
 					description: 'make your own key',
 				},
 			},
 
 			{
-				heading: 'Create an *unencrypted* gist',
+				title: 'Create an *unencrypted* gist',
 				form: {
 					action: 'create',
 					method: 'post',
-					label: 'Name:',
+					label: 'Name',
 					type: 'text',
 					name: 'name',
+					textArea: true,
 					description: 'unencrypted gist',
 				},
 			},
 
 			{
-				heading: 'Create an *encrypted* gist for yourself',
+				title: 'Create an *encrypted* gist for yourself',
 				form: {
 					action: 'createsecret',
 					method: 'post',
-					label: 'Name:',
+					label: 'Name',
 					type: 'text',
 					name: 'name',
+					textArea: true,
 					description: 'encrypted gist',
 				},
 			},
 
 			{
-				heading: 'Retrieve an *encrypted* gist you posted for yourself',
+				title: 'Retrieve an *encrypted* gist you posted for yourself',
 				form: {
 					action: 'fetchmessagefromself:id',
 					method: 'get',
-					label: 'Gist ID:',
+					label: 'Gist ID',
 					type: 'text',
 					name: 'id',
+					textArea: false,
 					description: 'encrypted gist',
 				},
 			},
 			{
-				heading: 'Retrieve an *encrypted* gist you posted for yourself',
+				title: 'Retrieve an *encrypted* gist you posted for yourself',
 				form: {
 					action: 'postmessageforfriend',
 					method: 'post',
-					label: "Friend's Public Key String:",
+					label: "Friend's Public Key String",
 					type: 'text',
 					name: 'name',
+					textArea: true,
 					description: 'encrypted gist for yourself',
 				},
 			},
 			{
-				heading: 'Retrieve an *encrypted* gist a friend has posted',
+				title: 'Retrieve an *encrypted* gist a friend has posted',
 				form: {
 					action: 'postmessageforfriend',
 					method: 'get',
-					label: 'String From Friend:',
+					label: 'String From Friend',
 					type: 'text',
 					name: 'messageString',
+					textArea: false,
 					description: 'retrieve encrypted gist',
 				},
 			},
